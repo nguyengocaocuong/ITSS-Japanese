@@ -1,0 +1,67 @@
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(184, 162, 162, 0.14);
+    width: 100%;
+    padding: 25px 100px;
+
+    ul {
+        width: calc(100% - 50px);
+        height: 50px;
+        left: 0px;
+        right: 1024px;
+        top: 23px;
+
+        font-family: 'Irish Grover';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 36px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #D1D1D1;
+
+        text-transform: uppercase;
+
+        li {
+            display: inline-block;
+            margin-right: 50px;
+            color: #D1D1D1;
+            cursor: pointer;
+            &:hover {
+                color: #bdb8b8;
+            }
+
+            &.input-search {
+                position: relative;
+
+                input {
+                    height: 46px;
+                    width: 550px;
+                    border-radius: 15px;
+                    border: none;
+                    padding: 10px 25px 10px 50px;
+                    font-size: 20px;
+                    box-sizing: border-box;
+                    color: #D1D1D1;
+
+                    margin-right: 320px;
+
+                    &:focus {
+                        border: none;
+                    }
+                }
+
+                i {
+                    position: absolute;
+                    top: 10px;
+                    left: 15px;
+                }
+            }
+
+        }
+    }
+}

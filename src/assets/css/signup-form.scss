@@ -1,0 +1,150 @@
+.signup-form__right {
+    .icon-close {
+        display: flex;
+        justify-content: end;
+        color: gray;
+        margin: 10px 10px;
+        cursor: pointer;
+    }
+
+    .signup-form__input {
+        width: 70%;
+        margin: 15px 15% 10px 15%;
+
+        .group-input {
+            position: relative;
+            margin-bottom: 15px;
+
+            input {
+                display: block;
+                width: 100%;
+                height: 40px;
+                border-radius: 15px;
+                background-color: aliceblue;
+                border: none;
+                padding-left: 10px;
+                padding-right: 10px;
+                box-sizing: border-box;
+                font-family: 'Inder';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 19px;
+                color: #7B7B7B;
+
+                &:last-child {
+                    padding-right: 35px;
+                }
+            }
+
+            i {
+                position: absolute;
+                right: 10px;
+                line-height: 40px;
+                font-size: 20px;
+            }
+
+            p {
+                margin-top: 5px;
+                text-align: end;
+                font-family: 'Inder';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 15px;
+                color: #565353;
+
+                &:hover {
+                    text-decoration: solid;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 28px;
+            }
+        }
+
+        .divider {
+            display: flex;
+            justify-content: space-between;
+
+            .divider__line {
+                width: 40%;
+                height: 1.03px;
+                background: #949494;
+                margin-top: 7px;
+            }
+
+            .divider__text {
+                font-family: 'Inder';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 16px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                color: #494949;
+            }
+        }
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        button {
+            width: 45%;
+            font-size: 13px;
+
+            height: 40px;
+            border-radius: 25px;
+            border: none;
+            font-weight: 700;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            &:first-child {
+                color: white;
+                background-color: #e4176c;
+            }
+
+            &:last-child {
+                color: #e4176c;
+                background-color: white;
+            }
+        }
+
+        margin-bottom:17px;
+    }
+
+    .signup-form__option {
+        display: flex;
+        justify-content: space-around;
+        margin-left: 15%;
+        margin-right: 15%;
+
+        div {
+            width: 103px;
+            height: 71px;
+            background-color: aliceblue;
+            border-radius: 15px;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            cursor: pointer;
+
+            &:first-child {
+                background-image: url(../image/flat-color-icons_google.png);
+            }
+
+            &:last-child {
+                background-image: url(../image/logos_facebook.png);
+            }
+
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+        }
+    }
+
+
+}
