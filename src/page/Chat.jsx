@@ -4,7 +4,7 @@ export const Chat = ({ user = { name: 'Tom' } }) => {
     return (
         <div id='chat'>
             <div className="chat-header">
-                <i class='bx bx-chevron-left' ></i>
+                <i className='bx bx-chevron-left' ></i>
                 <p>{user.name}</p>
             </div>
             <div className="chat-content">
@@ -12,8 +12,8 @@ export const Chat = ({ user = { name: 'Tom' } }) => {
             </div>
             <div className="chat-footer">
                 <input type="text" />
-                <i class='bx bx-smile' ></i>
-                <i class='bx bxs-send' ></i>
+                <i className='bx bx-smile' ></i>
+                <i className='bx bxs-send' ></i>
             </div>
         </div>
     )

@@ -15,7 +15,7 @@ export const Login = ({ contentId, changeContent,changeLoginStatus }) => {
             case 1:
                 return <LoginForm changeContent={changeContent} changeLoginStatus={changeLoginStatus}/>;
             case 2:
-                return <SignupForm changeContent={changeContent} changeLoginStatus={changeLoginStatus}/>;
+                return <SignupForm changeContent={changeContent} />;
         }
     }
     return (

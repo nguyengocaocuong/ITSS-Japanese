@@ -1,7 +1,12 @@
 import React from 'react'
 import '../assets/css/signup-form.scss'
+import { useNavigate } from "react-router-dom";
+export const SignupForm = ({ changeContent }) => {
+  const navigation = useNavigate();
 
-export const SignupForm = ({ changeContent, changeLoginStatus }) => {
+  const handleSignUp = () => {
+    navigation('/home')
+  }
   return (
     <div className="signup-form__right">
       <div className="icon-close" onClick={() => changeContent(0)}><p>X</p></div>
@@ -21,7 +26,7 @@ export const SignupForm = ({ changeContent, changeLoginStatus }) => {
           <input type="password" placeholder='Confirm Password' />
         </div>
         <div className="button-group">
-          <button onClick={()=>changeLoginStatus(true)}>Sign Up</button>
+          <button onClick={handleSignUp}>Sign Up</button>
           <button onClick={() => changeContent(1)}>Sign In</button>
         </div>
         <div className="divider">
