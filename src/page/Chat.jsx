@@ -1,5 +1,6 @@
 import React from 'react'
 import '../assets/css/chat.scss'
+import { Message } from '../component/Message'
 export const Chat = ({ user = { name: 'Tom' } }) => {
     return (
         <div id='chat'>
@@ -8,7 +9,17 @@ export const Chat = ({ user = { name: 'Tom' } }) => {
                 <p>{user.name}</p>
             </div>
             <div className="chat-content">
-
+                <Message otherMessage={true}/>
+                <Message otherMessage={false}/>
+                <Message otherMessage={true}/>
+                <Message otherMessage={false}/>
+                <Message otherMessage={true}/>
+                <Message otherMessage={false}/>
+                <Message otherMessage={true}/>
+                <Message otherMessage={false}/>
+                <Message otherMessage={true}/>
+                <Message otherMessage={false}/>
+                <Message otherMessage={true}/>
             </div>
             <div className="chat-footer">
                 <input type="text" />

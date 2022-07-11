@@ -19,6 +19,7 @@ import Avatar6 from '../assets/image/avatar/image6.png'
 import Avatar7 from '../assets/image/avatar/image7.png'
 import Avatar8 from '../assets/image/avatar/image8.png'
 import Avatar9 from '../assets/image/avatar/image9.png'
+import { CardFilter } from '../component/CardFilter'
 
 export const Home = ({ }) => {
   const listOptions = [{ id: 1, label: 'All' }, { id: 2, label: 'Male' }, { id: 3, label: 'Female' }]
@@ -58,6 +59,13 @@ export const Home = ({ }) => {
         <div className="right-content">
           <div className="filter-text">
             <input type="text" placeholder='Enter key' />
+          </div>
+          <div className="filter-content">
+              <CardFilter user={{avatar:Image1}}/>
+              <CardFilter user={{avatar:Image2}}/>
+              <CardFilter user={{avatar:Image3}}/>
+              <CardFilter user={{avatar:Image4}}/>
+      
           </div>
         </div>
       </div>

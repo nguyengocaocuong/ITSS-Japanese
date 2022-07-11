@@ -2,7 +2,7 @@ import React from 'react'
 import '../assets/css/header.scss'
 export const Header = ({content, changeContent}) => {
   return (
-    <div id='header'>
+    <div id='header' >
         <ul>
             <li>Logo</li>
             <li className='input-search'><i className='bx bx-search-alt-2'></i><input type="text" /></li>

@@ -1,3 +1,28 @@
-#footer{
-    
+#footer {
+    height: 150px;
+    background: #FDFDFD;
+    padding: 30px 25px;
+
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+
+    color: #515151;
+
+    .footer-top {
+        border-bottom: 1px solid gray;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+
+        ul {
+            li {
+                display: inline-block;
+                padding: 0 15px;
+            }
+        }
+    }
 }

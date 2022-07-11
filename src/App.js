@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './assets/css/App.scss';
-import { Header } from './component/Header';
 import { Footer } from './component/Footer';
+import { Header } from './component/Header';
 import { Home } from './page/Home';
 import { Login } from './page/Login';
 import { useLocation } from 'react-router-dom';
@@ -25,6 +25,13 @@ function App() {
   console.log()
   const [contentId, setContentId] = useState(undefined)
   const [loginStatus, setLoginStatus] = useState(false)
+  const [hiddentHeader, setHiddentHeader] = useState(false)
+  const handleScroll = (event) => {
+    if (event.currentTarget.scrollTop >= 844) {
+      setHiddentHeader(true)
+    } else
+      setHiddentHeader(false)
+  }
   return (
     <div className="App">
       <Header content={location.pathname != 'home' ? homeContentMenu : loginContentMenu} changeContent={setContentId} />
@@ -38,3 +45,6 @@ function App() {
 }
 
 export default App;
+
+//       <Profile/>
+//       <Footer/>

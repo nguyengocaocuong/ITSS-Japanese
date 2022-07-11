@@ -1,0 +1,136 @@
+#profile {
+    width: 953px;
+    height: 827px;
+
+    background: #FFFFFF;
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 130px;
+    margin-bottom: 20px;
+
+    padding: 25px;
+
+    .profile-top {
+        .short-profile {
+            width: 40%;
+            display: flex;
+            justify-content: space-between;
+
+            img {
+                width: 130px;
+                height: 130px;
+                display: block;
+            }
+
+            .short-info {
+                .short-info__email {
+                    width: 206px;
+                    height: 49px;
+
+                    font-family: 'Inder';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 22px;
+
+                    color: #777777;
+                    margin: 5px 0 0 0;
+                    padding: 0;
+                }
+
+                .short-info__name {
+                    height: 49px;
+
+                    font-family: 'Inder';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 25px;
+
+                    color: #000000;
+                }
+
+                .short-info__age {
+                    width: 63px;
+                    height: 19px;
+
+                    font-family: 'Inder';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 19px;
+                    color: #2E2E2E;
+                }
+            }
+        }
+
+        padding-bottom: 30px;
+        border-bottom: 2px solid gray;
+    }
+
+    .profile-option {
+        padding: 0;
+        margin: 0;
+
+        ul {
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+
+            li { 
+                i{
+                    margin-right: 5px;
+                    font-size: 18px;
+                }
+                display: inline-block;
+                padding: 10px 20px;
+                font-family: 'Inder';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 19px;
+
+                color: #000000;
+
+                &.active {
+                    border-top: 3px solid gray;
+                }
+            }
+        }
+    }
+
+    .profile-title {
+        text-align: center;
+        padding: 40px 0 20px 0;
+        font-family: 'Inder';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+
+        color: #000000;
+    }
+
+    .profile-content {
+        padding: 0 100px;
+        width: 100%;
+
+        ul {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: circle;
+            li {
+                width: calc(100% / 3);
+                font-family: 'Oxygen';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 19px;
+
+                color: #000000;
+            }
+        }
+    }
+}
