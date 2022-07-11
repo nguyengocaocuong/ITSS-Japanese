@@ -24,6 +24,8 @@
     .chat-content{
         height: calc(100vh - 210px);
         margin:10px 20px;
+        overflow-y: scroll;
+        padding-left: 5px;
     }
     .chat-footer{
         height: 100px;
@@ -56,6 +58,11 @@
             top:0;
             line-height: 96px;
             font-size: 40px;
+        }
+        #emoji{
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
         }
     }
 }

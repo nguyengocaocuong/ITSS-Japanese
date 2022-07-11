@@ -10,7 +10,7 @@ export const Card = ({ user }) => {
                     <img src={user.avatar} alt="" className="avatar" />
                 </div>
                 <div className="icon-message">
-                    <i class='bx bx-message-dots' ></i>
+                    <i className='bx bx-message-dots' ></i>
                 </div>
             </div>
         </div>
