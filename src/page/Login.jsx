@@ -1,37 +1,30 @@
 import React from 'react'
 import '../assets/css/login.scss'
-import { LoginForm } from '../component/LoginForm'
-import { SignupForm } from '../component/SignupForm'
+import { Header } from '../component/Header'
+import {
+    Outlet, useLocation
+} from 'react-router-dom';
 
 
-
-
-
-export const Login = ({ contentId, changeContent}) => {
-    const getContent = () => {
-        switch (contentId) {
-            case undefined:
-                return '';
-            case 1:
-                return <LoginForm changeContent={changeContent} />;
-            case 2:
-                return <SignupForm changeContent={changeContent} />;
-        }
-    }
+const loginContentMenu = [
+    { id: 1, label: 'Log in', path: '/login/login-form' },
+    { id: 2, label: 'Sign up', path: '/login/signup-form' }
+]
+export const Login = () => {
+    const location = useLocation()
     return (
-        <div id='login'>
-            {
-                contentId ? (
-                    <div className="login-container">
-                        <div className="content">
-                            <div className="content__left"></div>
-                            <div>
-                                {getContent()}
-                            </div>
+        <div>
+            <Header content={loginContentMenu} />
+            <div id='login'>
+                <div className={`login-container ${location.pathname == '/login' ? 'd-none' : ''}`}>
+                    <div className="content">
+                        <div className="content__left"></div>
+                        <div>
+                            <Outlet />
                         </div>
                     </div>
-                ) : ''
-            }
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,17 +1,19 @@
 import React from 'react'
 import '../assets/css/login-form.scss'
+import { useNavigate } from 'react-router-dom';
 
-export const LoginForm = ({changeContent,changeLoginStatus}) => {
+export const LoginForm = () => {
+  const navigation = useNavigate();
     return (
         <div className="login-form__right">
-            <div className="icon-close" onClick={()=> changeContent(0)}><p>X</p></div>
+            <div className="icon-close"><p onClick={() => navigation('/login')}>X</p></div>
             <div className="login-form__input">
                 <div className="group-input">
                     <input type="text" placeholder='Username' />
                 </div>
                 <div className="group-input">
                     <i className='bx bx-low-vision'></i>
-                    <input type="password" placeholder='Password'/>
+                    <input type="password" placeholder='Password' />
                     <p>Forgot password?</p>
                 </div>
                 <div className="divider">

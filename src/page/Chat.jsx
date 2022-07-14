@@ -1,15 +1,18 @@
 import React from 'react'
-import '../assets/css/chat.scss'
 import { Message } from '../component/Message'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import '../assets/css/chat.scss'
+
+const exMessage = [
+    
+]
 
 export const Chat = ({ user = { name: 'Tom' } }) => {
+    const navigation = useNavigate()
     return (
         <div id='chat'>
             <div className="chat-header">
-                <Link to={'/home'}>
-                    <i className='bx bx-chevron-left' ></i>
-                </Link>
+                <i className='bx bx-chevron-left' onClick={()=> navigation(-1)} ></i>
                 <p>{user.name}</p>
             </div>
             <div className="chat-content">
@@ -19,11 +22,6 @@ export const Chat = ({ user = { name: 'Tom' } }) => {
                 <Message otherMessage={false} />
                 <Message otherMessage={true} />
                 <Message otherMessage={false} />
-                <Message otherMessage={true} />
-                <Message otherMessage={false} />
-                <Message otherMessage={true} />
-                <Message otherMessage={false} />
-                <Message otherMessage={true} />
             </div>
             <div className="chat-footer">
                 <input type="text" />

@@ -1,57 +1,41 @@
-import { useEffect, useState } from 'react'
-import './assets/css/App.scss'
-import { Footer } from './component/Footer'
-import { Header } from './component/Header'
-import { Profile } from './page/Profile'
-import { Home } from './page/Home'
+import { React, useEffect } from 'react'
+import { LoginForm } from './component/LoginForm'
+import { SignupForm } from './component/SignupForm'
 import { Login } from './page/Login'
-import { Chat } from './page/Chat'
-import { useLocation } from 'react-router-dom'
-
-
+import { Home } from './page/Home'
 import {
   Routes,
-  Route
+  Route,
+  useNavigate
 } from 'react-router-dom';
+import { Profile } from './component/Profile'
+import { UserHome } from './component/UserHome'
+import './assets/css/App.scss'
+import { Chat } from './page/Chat';
 
-const loginContentMenu = [
-  { id: 1, label: 'Log in',path:'' },
-  { id: 2, label: 'Sign up',path:'' }
-]
-const homeContentMenu = [
-  { id: 3, label: 'Profile',path:'/profile' },
-  { id: 4, label: 'Sign out',path:'/login' }
-]
 
 function App() {
-  const location = useLocation()
-  const [contentId, setContentId] = useState(undefined)
-  const [hiddentHeader, setHiddentHeader] = useState(false)
-  const handleScroll = (event) => {
-    if (event.currentTarget.scrollTop >= 844) {
-      setHiddentHeader(true)
-    } else
-      setHiddentHeader(false)
-  }
+  const navigate = useNavigate()
   useEffect(() => {
-    return () => {
-      if(location.pathname == '/chat')
-        setHiddentHeader(true)
-    }
-  }, [location])
-  
+    const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('use')) : null
+    if (!user)
+      navigate('login')
+  }, [])
+
   return (
-    <div className="App" onScroll={handleScroll}>
-    {
-      hiddentHeader ? '' :<Header content={location.pathname == '/home' ? homeContentMenu : loginContentMenu} changeContent={setContentId} />
-    }
+    <div className="App" >
       <Routes path='/'>
-        <Route index path='login' element={<Login contentId={contentId} changeContent={setContentId}/>} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/chat' element={<Chat />} />
+        <Route path='login' element={<Login />}>
+          <Route path='login-form' element={<LoginForm />} />
+          <Route path='signup-form' element={<SignupForm />} />
+          <Route path='*' element={<div></div>} />
+        </Route>
+        <Route path='home' element={<Home />}>
+          <Route index element={<UserHome />} />
+          <Route path='profile' element={<Profile />} />
+        </Route>
+        <Route path='chat' element={<Chat />} />
       </Routes>
-      <Footer/>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../assets/css/signup-form.scss'
 import { useNavigate } from "react-router-dom";
-export const SignupForm = ({ changeContent }) => {
+export const SignupForm = () => {
   const navigation = useNavigate();
 
   const handleSignUp = () => {
@@ -9,7 +9,7 @@ export const SignupForm = ({ changeContent }) => {
   }
   return (
     <div className="signup-form__right">
-      <div className="icon-close" onClick={() => changeContent(0)}><p>X</p></div>
+      <div className="icon-close"><p onClick={()=> navigation('/login')}>X</p></div>
       <div className="signup-form__input">
         <div className="group-input">
           <input type="text" placeholder='Username' />
@@ -27,7 +27,7 @@ export const SignupForm = ({ changeContent }) => {
         </div>
         <div className="button-group">
           <button onClick={handleSignUp}>Sign Up</button>
-          <button onClick={() => changeContent(1)}>Sign In</button>
+          <button>Sign In</button>
         </div>
         <div className="divider">
           <div className="divider__line"></div>

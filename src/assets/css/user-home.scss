@@ -1,0 +1,90 @@
+.bottom-bg {
+    box-sizing: border-box;
+    padding: 20px 15% 30px 15%;
+    width: 100%;
+    background: linear-gradient(180deg, #211B1B 0%, rgba(194, 194, 194, 0.25) 100%);
+    display: flex;
+    justify-content: space-between;
+
+    .left-content {
+        width: 50%;
+        padding: 25px;
+        background-color: white;
+        border-radius: 10px;
+
+        .list-user {
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            overflow-y: scroll;
+            max-height: 700px;
+        }
+
+        .filter-option {
+            ul {
+                padding: 0px 10px;
+
+                li {
+                    display: inline-block;
+                    margin: 10px 15px 5px 10px;
+                    padding: 0 5px;
+                    font-family: 'Libre Franklin';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 16px;
+                    color: #000000;
+                    cursor: pointer;
+
+                    &.active {
+                        color: red;
+                        border-bottom: 2px solid red;
+                    }
+                }
+            }
+
+            margin-bottom: 20px;
+        }
+
+        .card-content {
+            padding: 0 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-col {
+            width: 29%;
+        }
+    }
+
+    .right-content-container {
+        width: 36%;
+        .right-content {
+            width: 100%;
+            padding: 25px 35px 25px 35px;
+            background-color: white;
+            border-radius: 10px;
+            box-sizing: border-box;
+    
+            .filter-text {
+                input {
+                    width: 100%;
+                    padding: 5px 0;
+                    border: none;
+                    border-bottom: 1px solid rgb(192, 186, 186);
+                    margin: 0 5px;
+                    font-family: 'Libre Franklin';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 16px;
+                    color: #afa3a3;
+    
+                }
+            }
+        }
+    }
+
+   
+}
