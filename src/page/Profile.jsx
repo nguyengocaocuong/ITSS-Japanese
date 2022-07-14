@@ -22,9 +22,9 @@ export const Profile = () => {
             </div>
             <div className="profile-option">
                 <ul>
-                    <li className='active'><i class='bx bx-calendar' ></i>Info</li>
-                    <li><i class='bx bx-bookmarks'></i>Bookmark</li>
-                    <li><i class='bx bx-images' ></i>Image</li>
+                    <li className='active'><i className='bx bx-calendar' ></i>Info</li>
+                    <li><i className='bx bx-bookmarks'></i>Bookmark</li>
+                    <li><i className='bx bx-images' ></i>Image</li>
                 </ul>
             </div>
             <div className="profile-title">

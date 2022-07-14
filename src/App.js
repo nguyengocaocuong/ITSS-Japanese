@@ -1,10 +1,13 @@
-import { useState } from 'react';
-import './assets/css/App.scss';
-import { Footer } from './component/Footer';
-import { Header } from './component/Header';
-import { Home } from './page/Home';
-import { Login } from './page/Login';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import './assets/css/App.scss'
+import { Footer } from './component/Footer'
+import { Header } from './component/Header'
+import { Profile } from './page/Profile'
+import { Home } from './page/Home'
+import { Login } from './page/Login'
+import { Chat } from './page/Chat'
+import { useLocation } from 'react-router-dom'
+
 
 import {
   Routes,
@@ -12,19 +15,17 @@ import {
 } from 'react-router-dom';
 
 const loginContentMenu = [
-  { id: 1, label: 'Log in' },
-  { id: 2, label: 'Sign up' }
+  { id: 1, label: 'Log in',path:'' },
+  { id: 2, label: 'Sign up',path:'' }
 ]
 const homeContentMenu = [
-  { id: 3, label: 'Profile' },
-  { id: 4, label: 'Sign out' }
+  { id: 3, label: 'Profile',path:'/profile' },
+  { id: 4, label: 'Sign out',path:'/login' }
 ]
 
 function App() {
   const location = useLocation()
-  console.log()
   const [contentId, setContentId] = useState(undefined)
-  const [loginStatus, setLoginStatus] = useState(false)
   const [hiddentHeader, setHiddentHeader] = useState(false)
   const handleScroll = (event) => {
     if (event.currentTarget.scrollTop >= 844) {
@@ -32,12 +33,23 @@ function App() {
     } else
       setHiddentHeader(false)
   }
+  useEffect(() => {
+    return () => {
+      if(location.pathname == '/chat')
+        setHiddentHeader(true)
+    }
+  }, [location])
+  
   return (
-    <div className="App">
-      <Header content={location.pathname != 'home' ? homeContentMenu : loginContentMenu} changeContent={setContentId} />
+    <div className="App" onScroll={handleScroll}>
+    {
+      hiddentHeader ? '' :<Header content={location.pathname == '/home' ? homeContentMenu : loginContentMenu} changeContent={setContentId} />
+    }
       <Routes path='/'>
-        <Route index path='login' element={<Login contentId={contentId} changeContent={setContentId} changeLoginStatus={setLoginStatus} />} />
+        <Route index path='login' element={<Login contentId={contentId} changeContent={setContentId}/>} />
         <Route path='/home' element={<Home />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/chat' element={<Chat />} />
       </Routes>
       <Footer/>
     </div>
@@ -45,6 +57,3 @@ function App() {
 }
 
 export default App;
-
-//       <Profile/>
-//       <Footer/>

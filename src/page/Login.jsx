@@ -7,13 +7,13 @@ import { SignupForm } from '../component/SignupForm'
 
 
 
-export const Login = ({ contentId, changeContent,changeLoginStatus }) => {
+export const Login = ({ contentId, changeContent}) => {
     const getContent = () => {
         switch (contentId) {
             case undefined:
                 return '';
             case 1:
-                return <LoginForm changeContent={changeContent} changeLoginStatus={changeLoginStatus}/>;
+                return <LoginForm changeContent={changeContent} />;
             case 2:
                 return <SignupForm changeContent={changeContent} />;
         }

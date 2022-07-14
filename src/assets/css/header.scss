@@ -29,8 +29,15 @@
         li {
             display: inline-block;
             margin-right: 50px;
+
+            a {
+                color: #D1D1D1;
+                text-decoration: none;
+            }
+
             color: #D1D1D1;
             cursor: pointer;
+
             &:hover {
                 color: #bdb8b8;
             }
@@ -64,7 +71,8 @@
 
         }
     }
-    &.header-bg{
+
+    &.header-bg {
         background-image: url(../image/Header.png);
         background-repeat: no-repeat;
         background-size: cover;

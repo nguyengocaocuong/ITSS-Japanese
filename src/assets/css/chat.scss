@@ -9,11 +9,16 @@
         border-bottom: 1px solid gray;
         display: flex;
         justify-content: start;
-        i{
+        a{
             display: block;
-            font-size: 50px;
-            font-weight: 700;
+            text-decoration: none;
             width: 47%;
+
+            i{
+                display: block;
+                font-size: 50px;
+                font-weight: 700;
+            }
         }
         p{
             font-size: 50px;
