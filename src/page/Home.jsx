@@ -1,24 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Header } from '../component/Header'
 import { Footer } from '../component/Footer'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import './../assets/css/home.scss'
 
-const homeContentMenu = [
-  { id: 3, label: 'Profile',path:'/home/profile' },
-  { id: 4, label: 'Sign out',path:'/login' }
-]
+
 export const Home = () => {
+  const navigate = useNavigate()
+  useEffect(() => {
+    const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
+    if (!user)
+      navigate('login')
+  }, [navigate])
+
+  const handleLogOut = () => {
+    localStorage.removeItem('user')
+  }
+
+  const homeContentMenu = [
+    { id: 3, label: 'Profile', path: 'user/home/profile' },
+    { id: 4, label: 'Logout', path: 'login', handle: handleLogOut }
+  ]
 
   return (
     <div>
-      <Header content={homeContentMenu}/>
+      <Header content={homeContentMenu} />
       <div id="home">
         <div className="top-bg">
         </div>
-        <Outlet/>
+        <Outlet />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

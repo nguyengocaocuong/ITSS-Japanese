@@ -2,14 +2,15 @@ import React from 'react'
 import '../assets/css/signup-form.scss'
 import { useNavigate } from "react-router-dom";
 export const SignupForm = () => {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
 
   const handleSignUp = () => {
-    navigation('/home')
+    localStorage.setItem('user', JSON.stringify({ userId: 2, name: 'Hiếu', sex: 0 }))
+    navigate('user/home')
   }
   return (
     <div className="signup-form__right">
-      <div className="icon-close"><p onClick={()=> navigation('/login')}>X</p></div>
+      <div className="icon-close"><p onClick={() => navigate('login')}>X</p></div>
       <div className="signup-form__input">
         <div className="group-input">
           <input type="text" placeholder='Username' />

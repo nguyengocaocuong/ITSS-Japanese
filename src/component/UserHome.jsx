@@ -22,15 +22,15 @@ import Image8 from '../assets/image/avatar/image8.png'
 import Image9 from '../assets/image/avatar/image9.png'
 
 const exListUser = [
-  { image: Image9, name: 'Cường', avatar: Avatar1, sex: 0 },
-  { image: Image3, name: 'Hiếu', avatar: Avatar2, sex: 0 },
-  { image: Image2, name: 'Hải', avatar: Avatar3, sex: 0 },
-  { image: Image4, name: 'Thư', avatar: Avatar4, sex: 1 },
-  { image: Image5, name: 'Tuyết', avatar: Avatar5, sex: 0 },
-  { image: Image6, name: 'Tú', avatar: Avatar6, sex: 1 },
-  { image: Image7, name: 'Hiền', avatar: Avatar7, sex: 1 },
-  { image: Image8, name: 'Cảnh', avatar: Avatar8, sex: 1 },
-  { image: Image1, name: 'Đạt', avatar: Avatar9, sex: 0 }
+  {userId:1, image: Image9, name: 'Cường', avatar: Avatar1, sex: 0 },
+  {userId:2, image: Image3, name: 'Hiếu', avatar: Avatar2, sex: 0 },
+  {userId:3, image: Image2, name: 'Hải', avatar: Avatar3, sex: 0 },
+  {userId:4, image: Image4, name: 'Thư', avatar: Avatar4, sex: 1 },
+  {userId:5, image: Image5, name: 'Tuyết', avatar: Avatar5, sex: 0 },
+  {userId:6, image: Image6, name: 'Tú', avatar: Avatar6, sex: 1 },
+  {userId:7, image: Image7, name: 'Hiền', avatar: Avatar7, sex: 1 },
+  {userId:8, image: Image8, name: 'Cảnh', avatar: Avatar8, sex: 1 },
+  {userId:9, image: Image1, name: 'Đạt', avatar: Avatar9, sex: 0 }
 ]
 
 export const UserHome = () => {
@@ -41,7 +41,7 @@ export const UserHome = () => {
     const colValue = [[], [], []]
     let counter = 0
     users.forEach((i, index) => {
-      if (currentOption == -1 || i.sex == currentOption) {
+      if (currentOption ===-1 || i.sex === currentOption) {
         colValue[counter % 3].push(<Card key={index} user={i} />)
         counter += 1
       }
@@ -67,7 +67,7 @@ export const UserHome = () => {
         <div className="filter-option">
           <ul>
             {
-              listOptions.map((i, id) => <li key={id} className={i.id == currentOption ? 'active' : ''} onClick={() => setCurrentOption(i.id)} >{i.label}</li>)
+              listOptions.map((i, id) => <li key={id} className={i.id === currentOption ? 'active' : ''} onClick={() => setCurrentOption(i.id)} >{i.label}</li>)
             }
           </ul>
         </div>
