@@ -45,7 +45,7 @@ export const Chat = ({ user = { name: 'Tom' } }) => {
             </div>
             <div className="chat-content">
                 {
-                    listMessages.map((i, index) => <Message key={index} message={i} otherId={parseInt(params.id)}/>)
+                    listMessages.map((i, index) => <Message key={index} message={i} ortherId={parseInt(params.id)}/>)
                 }
             </div>
             <div className="chat-footer">
