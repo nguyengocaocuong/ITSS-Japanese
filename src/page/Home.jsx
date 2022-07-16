@@ -18,7 +18,7 @@ export const Home = () => {
   }
 
   const homeContentMenu = [
-    { id: 3, label: 'Profile', path: 'user/home/profile' },
+    { id: 3, label: 'Profile', path: 'profile' },
     { id: 4, label: 'Logout', path: 'login', handle: handleLogOut }
   ]
 

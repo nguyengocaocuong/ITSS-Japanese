@@ -1,21 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../assets/css/profile.scss'
 import Avatar from '../assets/image/large_avatar.png'
+
+const exUser = {
+    userId: 1,
+    name: 'Nguyễn An Ninh',
+    avatar: Avatar,
+    sex: 0,
+    email: 'nguyenanninh@gmail.com',
+    age: 26,
+    height: 174,
+    weight: 74,
+    address: '33 Nguyễn An Ninh',
+    phone: '0818988577'
+}
 export const Profile = () => {
+    const [user, setUser] = useState(exUser)
     return (
         <div id='profile'>
             <div className="profile-top">
                 <div className="short-profile">
-                    <img src={Avatar} alt="" />
+                    <img src={user.avatar} alt="" />
                     <div className="short-info">
                         <div className="short-info__email">
-                            nguyenngocaocuong@gmail.com
+                            {user.email}
                         </div>
                         <div className="short-info__name">
-                            Nguyễn Ngô Cao Cường
+                            {user.name}
                         </div>
                         <div className="short-info__age">
-                            22 Age
+                            {user.age} Age
                         </div>
                     </div>
                 </div>
@@ -31,13 +45,13 @@ export const Profile = () => {
                 INFOMATION
             </div>
             <div className="profile-content">
-            <ul>
-                <li>Age : <span>26</span></li>
-                <li>Height : <span>174</span> cm</li>
-                <li>Weight : <span>74</span> kg</li>
-                <li>Address : <span>33 Nguyễn An Ninh</span></li>
-                <li>Phone : <span>0818988544</span> </li>
-            </ul>
+                <ul>
+                    <li>Age : <span>{user.age}</span></li>
+                    <li>Height : <span>{user.height}</span> cm</li>
+                    <li>Weight : <span>{user.weight}</span> kg</li>
+                    <li>Address : <span>{user.address}</span></li>
+                    <li>Phone : <span>{user.phone}</span> </li>
+                </ul>
             </div>
         </div>
     )

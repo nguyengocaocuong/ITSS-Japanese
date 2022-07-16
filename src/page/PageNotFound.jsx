@@ -7,7 +7,7 @@ export const PageNotFound = () => {
     if (!localStorage.getItem('user'))
       navigate('login')
     else
-      navigate('user/home',{replace:true})
+      navigate('/user/home')
   }, [navigate])
   return (
     <div></div>

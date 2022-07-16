@@ -12,7 +12,7 @@ export const Card = ({ user }) => {
                     <img src={user.avatar} alt="" className="avatar" />
                 </div>
                 <div className="icon-message">
-                    <i className='bx bx-message-dots' onClick={()=> navigate(`user/chat/${user.userId}`)}></i>
+                    <i className='bx bx-message-dots' onClick={()=> navigate(`chat/${user.userId}`)}></i>
                 </div>
             </div>
         </div>
