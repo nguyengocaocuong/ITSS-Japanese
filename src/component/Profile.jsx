@@ -15,33 +15,21 @@ const exUser = {
     phone: '0818988577'
 }
 export const Profile = () => {
-<<<<<<< Updated upstream
-    const [user, setUser] = useState(exUser)
-=======
 
+    const [user, setUser] = useState(exUser)
     const [isEdit, changeEditState] = useState(false)
 
     const onEditClickHandle = () => {
         changeEditState(!isEdit);
     }
 
->>>>>>> Stashed changes
     return (
         <div id='profile'>
             <div className="profile-top">
                 <div className="short-profile">
                     <img src={user.avatar} alt="" />
                     <div className="short-info">
-<<<<<<< Updated upstream
-                        <div className="short-info__email">
-                            {user.email}
-                        </div>
-                        <div className="short-info__name">
-                            {user.name}
-                        </div>
-                        <div className="short-info__age">
-                            {user.age} Age
-=======
+
                         <input readOnly={!isEdit} type="text" className="short-info__email border-none" defaultValue={"nguyenngocaocuong@gmail.com"} />                           
                         <input readOnly={!isEdit} type="text" className="short-info__name border-none" defaultValue={"Nguyễn Ngô Cao Cường"} />
                         <div className="short-info__age old-area">
@@ -49,7 +37,6 @@ export const Profile = () => {
                             <span className='age-text'>
                                 years old
                             </span>
->>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
@@ -70,15 +57,7 @@ export const Profile = () => {
                 INFOMATION
             </div>
             <div className="profile-content">
-<<<<<<< Updated upstream
-                <ul>
-                    <li>Age : <span>{user.age}</span></li>
-                    <li>Height : <span>{user.height}</span> cm</li>
-                    <li>Weight : <span>{user.weight}</span> kg</li>
-                    <li>Address : <span>{user.address}</span></li>
-                    <li>Phone : <span>{user.phone}</span> </li>
-                </ul>
-=======
+
             <ul>
                 <li>Sex : 
                     <select className={`border-none ${isEdit? "" : "select-read-only"}`} defaultValue={"male"}>
@@ -92,7 +71,6 @@ export const Profile = () => {
                 <li>Address : <input readOnly={!isEdit} type="text" className="border-none" defaultValue={"Hanoi"} />  </li>
                 <li>Phone : <input readOnly={!isEdit} type="phone" className="border-none" defaultValue={123456789} /> </li>
             </ul>
->>>>>>> Stashed changes
             </div>
         </div>
     )

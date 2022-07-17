@@ -1,13 +1,5 @@
-<<<<<<< Updated upstream
 import React from 'react'
-=======
-import { React, useEffect } from 'react'
-import { LoginForm } from './component/LoginForm'
-import { SignupForm } from './component/SignupForm'
-import { Login } from './page/Login'
 import {ResetPassword} from './component/ResetPassword'
-import { Home } from './page/Home'
->>>>>>> Stashed changes
 import {
   Route, Routes
 } from 'react-router-dom'
