@@ -22,6 +22,7 @@ import Image8 from '../assets/image/avatar/image8.png'
 import Image9 from '../assets/image/avatar/image9.png'
 
 const exListUser = [
+<<<<<<< Updated upstream
   {userId:1, image: Image9, name: 'Cường', avatar: Avatar1, sex: 0 },
   {userId:2, image: Image3, name: 'Hiếu', avatar: Avatar2, sex: 0 },
   {userId:3, image: Image2, name: 'Hải', avatar: Avatar3, sex: 0 },
@@ -31,17 +32,34 @@ const exListUser = [
   {userId:7, image: Image7, name: 'Hiền', avatar: Avatar7, sex: 1 },
   {userId:8, image: Image8, name: 'Cảnh', avatar: Avatar8, sex: 1 },
   {userId:9, image: Image1, name: 'Đạt', avatar: Avatar9, sex: 0 }
+=======
+  { image: Image9, name: 'Cường', avatar: Avatar1, sex: 0, address: "Ha noi, Dai Co Viet" },
+  { image: Image3, name: 'Hiếu', avatar: Avatar2, sex: 0, address: "Ha Noi, Hoang Mai" },
+  { image: Image2, name: 'Hải', avatar: Avatar3, sex: 0, address: "Ha Noi, Minh Khai" },
+  { image: Image4, name: 'Thư', avatar: Avatar4, sex: 1, address: "Ha noi, Dai Co Viet" },
+  { image: Image5, name: 'Tuyết', avatar: Avatar5, sex: 0, address: "Ha Noi, Minh Khai" },
+  { image: Image6, name: 'Tú', avatar: Avatar6, sex: 1, address: "Ha Noi, Hoang Mai" },
+  { image: Image7, name: 'Hiền', avatar: Avatar7, sex: 1, address: "Ha noi, Dai Co Viet" },
+  { image: Image8, name: 'Cảnh', avatar: Avatar8, sex: 1, address: "Ha Noi, Hoang Mai" },
+  { image: Image1, name: 'Đạt', avatar: Avatar9, sex: 0, address: "Ha noi, Dai Co Viet" }
+>>>>>>> Stashed changes
 ]
 
 export const UserHome = () => {
   const listOptions = [{ id: -1, label: 'All' }, { id: 0, label: 'Male' }, { id: 1, label: 'Female' }]
   const [currentOption, setCurrentOption] = useState(-1)
 
+  const [conditionFilter, setConditionFilter] = useState("")
+
   const renderListUser = (users = []) => {
     const colValue = [[], [], []]
     let counter = 0
     users.forEach((i, index) => {
+<<<<<<< Updated upstream
       if (currentOption ===-1 || i.sex === currentOption) {
+=======
+      if (currentOption === -1 || i.sex === currentOption) {
+>>>>>>> Stashed changes
         colValue[counter % 3].push(<Card key={index} user={i} />)
         counter += 1
       }
@@ -80,11 +98,14 @@ export const UserHome = () => {
       <div className="right-content-container">
         <div className="right-content">
           <div className="filter-text">
-            <input type="text" placeholder='Enter key' />
+            <input onChange={(e) => setConditionFilter(e.target.value)}type="text" placeholder='Enter key' />
           </div>
           <div className="filter-content">
             {
-              exListUser.slice(0, 4).map((i, index) => <CardFilter key={index} user={i} />)
+              exListUser.filter(e => (
+                e.name.toLowerCase().includes(conditionFilter.toLowerCase()) ||
+                e.address.toLowerCase().includes(conditionFilter.toLowerCase())
+              )).map((i, index) => <CardFilter key={index} user={i} />)
             }
           </div>
         </div>
