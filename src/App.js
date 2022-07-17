@@ -11,6 +11,8 @@ import { Chat } from './page/Chat'
 import { Home } from './page/Home'
 import { Login } from './page/Login'
 import { PageNotFound } from './page/PageNotFound'
+import {Admin} from './page/Admin'
+import {AdminLoginForm} from './component/AdminLoginForm'
 
 
 function App() {
@@ -28,6 +30,10 @@ function App() {
           <Route path='login-form' element={<LoginForm />} />
           <Route path='signup-form' element={<SignupForm />} />
           <Route path='*' element={<div></div>} />
+        </Route>
+        <Route path='admin' >
+          <Route path='login-form' element={<AdminLoginForm />} />
+          <Route path='' element={<Admin />} />
         </Route>
         <Route path='*' element={<PageNotFound />} />
       </Routes>
