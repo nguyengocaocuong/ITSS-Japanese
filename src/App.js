@@ -1,4 +1,5 @@
 import React from 'react'
+import {ResetPassword} from './component/ResetPassword'
 import {
   Route, Routes
 } from 'react-router-dom'
@@ -26,6 +27,7 @@ function App() {
         </Route>
         <Route path='login' element={<Login />}>
           <Route path='login-form' element={<LoginForm />} />
+          <Route path='resetPassword' element={<ResetPassword />} />
           <Route path='signup-form' element={<SignupForm />} />
           <Route path='*' element={<div></div>} />
         </Route>

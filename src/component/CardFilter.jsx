@@ -5,8 +5,8 @@ export const CardFilter = ({user}) => {
     <div id='card-filter'>
         <img src={user.image} alt="" />
         <div className="cart-filter__info">
-          <p className="name">Nguyễn Ngô Cao Cường</p>
-          <p className="address">Số 33 Nguyễn An Ninh</p>
+          <p className="name">{user.name}</p>
+          <p className="address">{user.address}</p>
         </div>
     </div>
   )

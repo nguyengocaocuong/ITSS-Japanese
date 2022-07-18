@@ -3,10 +3,10 @@ import '../assets/css/login-form.scss'
 import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
-  const navigate = useNavigate();
+  const navigation = useNavigate();
     return (
         <div className="login-form__right">
-            <div className="icon-close"><p onClick={() => navigate('/login')}>X</p></div>
+            <div className="icon-close"><p onClick={() => navigation('/login')}>X</p></div>
             <div className="login-form__input">
                 <div className="group-input">
                     <input type="text" placeholder='Username' />
@@ -14,7 +14,8 @@ export const LoginForm = () => {
                 <div className="group-input">
                     <i className='bx bx-low-vision'></i>
                     <input type="password" placeholder='Password' />
-                    <p>Forgot password?</p>
+                    
+                    <p className="reset-password" onClick={() => navigation('/login/resetPassword')}>Forgot password?</p>
                 </div>
                 <div className="divider">
                     <div className="divider__line"></div>
