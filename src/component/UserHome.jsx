@@ -45,6 +45,7 @@ export const UserHome = () => {
   const [conditionFilter, setConditionFilter] = useState("")
 
   const [allUser, updateAllUser] = useState([])
+  const [filterUser, updateFilterUser] = useState([])
 
   useEffect(() => {
     axios.get("https://app-matching-friend.herokuapp.com/accounts")
@@ -52,17 +53,25 @@ export const UserHome = () => {
       const dataAll = res.data
       const allUser = dataAll.map(e => ({
         image: e.avatar,
-        name: e.name,
+        name: e.name? e.name : "Anonymous",
         avatar: e.avatar,
         sex: e.sex,
-        address: e.location.locationName
+        address: e.location?.locationName
       }))
       updateAllUser(allUser)
     })
 
     axios.get(`https://app-matching-friend.herokuapp.com/features/top-match/${JSON.parse(localStorage.getItem("user")).userId}`)
     .then(res => {
-      console.log(res)
+      const dataFilter = res.data
+      const filterUser = dataFilter.map(e => ({
+        image: e.avatar,
+        name: e.name? e.name : "Anonymous",
+        avatar: e.avatar,
+        sex: e.sex,
+        address: e.location?.locationName
+      }))
+      updateFilterUser(filterUser)
     })
   }, [])
 
@@ -115,9 +124,9 @@ export const UserHome = () => {
           </div>
           <div className="filter-content">
             {
-              exListUser.filter(e => (
-                e.name.toLowerCase().includes(conditionFilter.toLowerCase()) ||
-                e.address.toLowerCase().includes(conditionFilter.toLowerCase())
+              filterUser.filter(e => (
+                e.name?.toLowerCase().includes(conditionFilter.toLowerCase()) ||
+                e.address?.toLowerCase().includes(conditionFilter.toLowerCase())
               )).map((i, index) => <CardFilter key={index} user={i} />)
             }
           </div>
