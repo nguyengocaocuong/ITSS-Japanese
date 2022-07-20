@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import '../assets/css/profile.scss'
 import Avatar from '../assets/image/large_avatar.png'
+import Axios from 'axios'
+// import {Image} from 'cloudinary-react'
 
 const exUser = {
     userId: 1,
@@ -15,7 +17,15 @@ const exUser = {
     phone: '0818988577'
 }
 export const Profile = () => {
-
+    const [imageSelected, setImageSelected] = useState("")
+    const uploadImage = () => {
+      const formData = new FormData();
+      formData.append("file", imageSelected);
+      formData.append("upload_preset", "lolicon");
+      Axios.post("https://api.cloudinary.com/v1_1/dzgscwqqt/image/upload", formData).then((response)=>{
+        console.log(response)
+      });
+    }
     const [user, setUser] = useState(exUser)
     const [isEdit, changeEditState] = useState(false)
 
@@ -28,6 +38,11 @@ export const Profile = () => {
             <div className="profile-top">
                 <div className="short-profile">
                     <img src={user.avatar} alt="" />
+                    <div>
+                    <input type="file" onChange={(event) => {setImageSelected(event.target.files[0]);
+                      }}/>
+                    <button onClick={uploadImage}>Upload image</button>
+                      </div>
                     <div className="short-info">
 
                         <input readOnly={!isEdit} type="text" className="short-info__email border-none" defaultValue={"nguyenngocaocuong@gmail.com"} />                           
