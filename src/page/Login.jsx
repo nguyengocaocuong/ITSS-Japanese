@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../assets/css/login.scss'
 import { Header } from '../component/Header'
 import {
-    Outlet, useLocation
+    Outlet,
+    useLocation,
+    useNavigate
 } from 'react-router-dom';
 
 
@@ -12,11 +14,18 @@ const loginContentMenu = [
 ]
 export const Login = () => {
     const location = useLocation()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
+        if (user)
+            navigate('/user/home')
+    }, [navigate])
     return (
         <div>
             <Header content={loginContentMenu} />
             <div id='login'>
-                <div className={`login-container ${location.pathname == '/login' ? 'd-none' : ''}`}>
+                <div className={`login-container ${location.pathname === '/login' ? 'd-none' : ''}`}>
                     <div className="content">
                         <div className="content__left"></div>
                         <div>

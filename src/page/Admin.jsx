@@ -2,15 +2,14 @@ import React, { useEffect } from 'react'
 import { Header } from '../component/Header'
 import { Footer } from '../component/Footer'
 import { Outlet, useNavigate } from 'react-router-dom'
-import './../assets/css/home.scss'
+import {AdminTable} from '../component/AdminTable'
 
-
-export const Home = () => {
+export const Admin = () => {
   const navigate = useNavigate()
   useEffect(() => {
     const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
     if (!user)
-      navigate('login')
+      navigate('/admin/login-form')
   }, [navigate])
 
   const handleLogOut = () => {
@@ -18,7 +17,6 @@ export const Home = () => {
   }
 
   const homeContentMenu = [
-    { id: 3, label: 'Profile', path: 'profile' },
     { id: 4, label: 'Logout', path: 'login', handle: handleLogOut }
   ]
 
@@ -26,9 +24,7 @@ export const Home = () => {
     <div>
       <Header content={homeContentMenu} />
       <div id="home">
-        <div className="top-bg">
-        </div>
-        <Outlet />
+        <AdminTable />
       </div>
       <Footer />
     </div>

@@ -14,7 +14,8 @@ export const LoginForm = () => {
                 <div className="group-input">
                     <i className='bx bx-low-vision'></i>
                     <input type="password" placeholder='Password' />
-                    <p>Forgot password?</p>
+                    
+                    <p className="reset-password" onClick={() => navigation('/login/resetPassword')}>Forgot password?</p>
                 </div>
                 <div className="divider">
                     <div className="divider__line"></div>
