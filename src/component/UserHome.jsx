@@ -1,7 +1,11 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import { CardFilter } from '../component/CardFilter'
 import { Card } from '../component/Card'
 import '../assets/css/user-home.scss'
+import axios from 'axios';
+
+
+
 import Avatar1 from '../assets/image/avatar/avatar1.png'
 import Avatar2 from '../assets/image/avatar/avatar2.png'
 import Avatar3 from '../assets/image/avatar/avatar3.png'
@@ -39,6 +43,28 @@ export const UserHome = () => {
   const [currentOption, setCurrentOption] = useState(-1)
 
   const [conditionFilter, setConditionFilter] = useState("")
+
+  const [allUser, updateAllUser] = useState([])
+
+  useEffect(() => {
+    axios.get("https://app-matching-friend.herokuapp.com/accounts")
+    .then(res => {
+      const dataAll = res.data
+      const allUser = dataAll.map(e => ({
+        image: e.avatar,
+        name: e.name,
+        avatar: e.avatar,
+        sex: e.sex,
+        address: e.location.locationName
+      }))
+      updateAllUser(allUser)
+    })
+
+    axios.get(`https://app-matching-friend.herokuapp.com/features/top-match/${JSON.parse(localStorage.getItem("user")).userId}`)
+    .then(res => {
+      console.log(res)
+    })
+  }, [])
 
   const renderListUser = (users = []) => {
     const colValue = [[], [], []]
@@ -78,7 +104,7 @@ export const UserHome = () => {
         </div>
         <div className="list-user">
           {
-            renderListUser(exListUser)
+            renderListUser(allUser)
           }
         </div>
       </div>
